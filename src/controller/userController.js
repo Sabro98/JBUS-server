@@ -1,5 +1,9 @@
 import User from "../Model/User";
 
+export const getJoin = (req, res) => {
+  return res.send("join");
+};
+
 export const postJoin = async (req, res) => {
   const { playerID, playerNickName, playerModel } = req.body;
   console.log(playerID, playerNickName, playerModel);
@@ -11,6 +15,10 @@ export const postJoin = async (req, res) => {
   }
 
   return res.send("Created");
+};
+
+export const getLogin = (req, res) => {
+  return res.send("login");
 };
 
 export const postLogin = async (req, res) => {
