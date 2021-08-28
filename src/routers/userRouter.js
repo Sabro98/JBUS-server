@@ -1,5 +1,10 @@
 import express from "express";
-import { getJoin, postJoin, postLogin } from "../controller/userController";
+import {
+  getJoin,
+  getLogin,
+  postJoin,
+  postLogin,
+} from "../controller/userController";
 
 const userRouter = express.Router();
 
