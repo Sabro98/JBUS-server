@@ -4,6 +4,9 @@
   "description": "JBNU meta-bus server",
   "main": "init.js",
   "scripts": {
+    "start" : "node build/init.js",
+    "build": "npm run build:server",
+    "build:server" : "babel src -d build",
     "dev:server": "nodemon"
   },
   "repository": {
