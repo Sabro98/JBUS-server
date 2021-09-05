@@ -24,7 +24,7 @@ export const getLogin = (req, res) => {
 export const postLogin = async (req, res) => {
   const { playerID } = req.body;
   const { playerNickName, playerModel } = await User.findOne({ playerID });
-  const resUser = { playerNickName, playerModel };
-  console.log(resUser);
+  const resUser = { playerID, playerNickName, playerModel };
+  
   return res.send(JSON.stringify(resUser));
 };
