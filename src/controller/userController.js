@@ -23,8 +23,14 @@ export const getLogin = (req, res) => {
 
 export const postLogin = async (req, res) => {
   const { playerID } = req.body;
-  const { playerNickName, playerModel } = await User.findOne({ playerID });
+  const user = await User.findOne({ playerID });
+
+  if (!user) {
+    return res.status(400).send("not user in db");
+  }
+
+  const { playerNickName, playerModel } = user;
   const resUser = { playerID, playerNickName, playerModel };
-  
+
   return res.send(JSON.stringify(resUser));
 };
