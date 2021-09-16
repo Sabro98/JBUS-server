@@ -6,7 +6,10 @@ export const getJoin = (req, res) => {
 
 export const postJoin = async (req, res) => {
   const { playerID, playerNickName, playerModel } = req.body;
-  console.log(playerID, playerNickName, playerModel);
+
+  const user = await User.exists({ playerID });
+  if (user) return res.status(400).send("duplicated userID");
+
   try {
     await User.create({ playerID, playerModel, playerNickName });
   } catch (err) {
