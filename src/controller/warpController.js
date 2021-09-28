@@ -3,7 +3,10 @@ import User from "../Model/User";
 
 export const postMove = async (req, res) => {
   const { playerID, from, to } = req.body;
-  const { _id: id } = await User.findOne({ playerID });
+  const { _id: id } = await User.findOneAndUpdate(
+    { playerID },
+    { meta: { latestChannel: to } }
+  );
 
   try {
     await Warp.create({

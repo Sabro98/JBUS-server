@@ -6,7 +6,6 @@ const warpSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-
   move: {
     from: { type: String, required: true, trim: true },
     to: { type: String, required: true, trim: true },
