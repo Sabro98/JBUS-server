@@ -1,14 +1,12 @@
 import Answer from "../Model/Answer";
 
 export const postSubmit = async (req, res) => {
-  const { playerID, isCorrect, roomName } = req.body;
-  const boolRoomName = JSON.parse(roomName);
-
+  const { playerID, roomName } = req.body;
   try {
     await Answer.create({
       playerID,
-      isCorrect,
-      roomName: boolRoomName,
+      isCorrect: true,
+      roomName,
     });
   } catch (err) {
     console.log(err);
